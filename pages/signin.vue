@@ -14,14 +14,14 @@ export default {
     return {
       isLoggedIn: false,
       authConfig: {
-        usernameAttributes: 'My user name',
+        usernameAttributes: 'My',
         signUpConfig: {
-          header: 'My Customized Sign Up!',
+          header: 'My Customizedp!',
           hideAllDefaults: true,
           defaultCountryCode: '1',
           signUpFields: [
             {
-              label: 'My user name',
+              label: '',
               key: 'username',
               required: true,
               displayOrder: 1,

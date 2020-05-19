@@ -1,17 +1,15 @@
 {
-    "projectName": "amplify-demo",
-    "version": "3.0",
-    "frontend": "javascript",
-    "javascript": {
-        "framework": "vue",
-        "config": {
-            "SourceDir": "src",
-            "DistributionDir": "dist",
-            "BuildCommand": "npm run-script build",
-            "StartCommand": "npm run-script start"
-        }
-    },
-    "providers": [
-        "awscloudformation"
-    ]
+  "projectName": "tba-console-app",
+  "version": "3.0",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "vue",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "dist",
+      "BuildCommand": "npm run-script build",
+      "StartCommand": "npm run-script start"
+    }
+  },
+  "providers": ["awscloudformation"]
 }

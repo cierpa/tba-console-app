@@ -68,7 +68,6 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -89,7 +88,17 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    // extend(config, ctx) {}
+    extend: (config) => {
+      const svgRule = config.module.rules.find((rule) => rule.test.test('.svg'))
+
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['babel-loader', 'vue-svg-loader']
+      })
+    }
   },
   server: {
     host: '0.0.0.0'
