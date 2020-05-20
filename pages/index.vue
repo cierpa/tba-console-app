@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-layout(row wrap)
+  v-app
     v-flex(xs12)
       v-text-field(v-model="state.content" label="content")
 
