@@ -1,10 +1,10 @@
 <template lang="pug">
-  v-layout(row wrap)
+  v-app
     v-flex(xs12)
       v-text-field(v-model="state.content" label="content")
 
     v-flex(xs12)
-      v-btn(color="primary" @click="createPost") Add
+      v-btn(color="warning" @click="createPost") Add
 
     br
     br
@@ -15,7 +15,6 @@
         div(v-for="(list, index) in mapPosts" :key="index")
           v-card-text(class="font-weight-thin pt-0") {{ list.content }}
 
-    SampleCom1
 </template>
 
 <script>
@@ -23,13 +22,8 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { listPosts } from '@/src/graphql/queries'
 import { createPost } from '@/src/graphql/mutations'
 import { onCreatePost } from '@/src/graphql/subscriptions'
-import SampleCom1 from '~/components/SampleCom1.vue'
 
 export default {
-  components: {
-    SampleCom1
-  },
-
   data() {
     return {
       state: {

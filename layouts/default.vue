@@ -1,8 +1,10 @@
 <template lang="pug">
-  v-app(dark)
+  v-app#inspire
     v-content
-      v-container
+      v-container(class="fill-height")
         nuxt
+        //- amplify-sign-out(v-if="isLoggedIn")
+        //- amplify-authenticator(v-else)
     v-navigation-drawer(v-model="rightDrawer" :right="right" temporary fixed)
       v-list
         v-list-item(@click.native="right = !right")
@@ -18,6 +20,7 @@ import { AmplifyEventBus } from 'aws-amplify-vue'
 export default {
   data() {
     return {
+      isLoggedIn: false,
       fixed: false,
       right: true,
       rightDrawer: false
@@ -31,6 +34,10 @@ export default {
         this.$router.push('/signin')
       }
     })
+  },
+  async mounted() {
+    const currentUserInfo = await this.$Amplify.Auth.currentUserInfo()
+    this.isLoggedIn = Boolean(currentUserInfo)
   }
 }
 </script>
