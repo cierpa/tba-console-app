@@ -1,11 +1,9 @@
 <template lang="pug">
-  v-app#inspire
+  v-app.black#inspire
+    LeftSidebar
     Navbar
     v-content
-      v-container(class="fill-height")
-        nuxt
-        //- amplify-sign-out(v-if="isLoggedIn")
-        //- amplify-authenticator(v-else)
+      nuxt
     v-navigation-drawer(v-model="rightDrawer" :right="right" temporary fixed)
       v-list
         v-list-item(@click.native="right = !right")
@@ -16,25 +14,26 @@
 <script>
 import { AmplifyEventBus } from 'aws-amplify-vue'
 import Navbar from '@/components/Navbar'
+import LeftSidebar from '@/components/LeftSidebar'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    LeftSidebar
   },
-  data() {
-    return {
-      isLoggedIn: false,
-      fixed: false,
-      right: true,
-      rightDrawer: false
-    }
-  },
+  data: () => ({
+    title: 'aaaa',
+    isLoggedIn: false,
+    fixed: false,
+    right: true,
+    rightDrawer: false
+  }),
   created() {
     AmplifyEventBus.$on('authState', (info) => {
       if (info === 'signedIn') {
-        this.$router.push('/')
+        this.$router.push('/home')
       } else if (info === 'signedOut') {
-        this.$router.push('/signin')
+        this.$router.push('/login')
       }
     })
   },
