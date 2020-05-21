@@ -1,5 +1,6 @@
 <template lang="pug">
   v-app#inspire
+    Navbar
     v-content
       v-container(class="fill-height")
         nuxt
@@ -10,14 +11,16 @@
         v-list-item(@click.native="right = !right")
           v-list-item-action
             v-icon(light) mdi-repeat
-    v-footer(app)
-      span &copy; {{ new Date().getFullYear() }}
 </template>
 
 <script>
 import { AmplifyEventBus } from 'aws-amplify-vue'
+import Navbar from '@/components/Navbar'
 
 export default {
+  components: {
+    Navbar
+  },
   data() {
     return {
       isLoggedIn: false,
