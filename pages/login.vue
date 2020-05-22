@@ -17,11 +17,14 @@
           div(class="my-2")
             v-btn(large color="warning") ログイン
 </template>
-
 <script>
 export default {
-  data() {
-    return {}
-  }
+  layout: 'empty',
+  data: () => ({
+    isLoggedIn: false,
+    fixed: false,
+    right: true,
+    rightDrawer: false
+  })
 }
 </script>

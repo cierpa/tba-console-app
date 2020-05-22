@@ -2,6 +2,17 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'spa',
+
+  // 存在しないページへのアクセスがあった場合、/homeにリダイレクトする
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'notFound',
+        path: '*',
+        component: resolve(__dirname, 'pages/home.vue')
+      })
+    }
+  },
   /*
    ** Headers of the page
    */
