@@ -1,9 +1,10 @@
 <template lang="pug">
-  v-app.black#inspire
-    LeftSidebar
+  v-app
     Navbar
+    NavigationDrawer
     v-content
-      nuxt
+      v-container.container-pos(fluid)
+        nuxt
     v-navigation-drawer(v-model="rightDrawer" :right="right" temporary fixed)
       v-list
         v-list-item(@click.native="right = !right")
@@ -14,12 +15,12 @@
 <script>
 import { AmplifyEventBus } from 'aws-amplify-vue'
 import Navbar from '@/components/Navbar'
-import LeftSidebar from '@/components/LeftSidebar'
+import NavigationDrawer from '@/components/NavigationDrawer'
 
 export default {
   components: {
     Navbar,
-    LeftSidebar
+    NavigationDrawer
   },
   data: () => ({
     title: 'aaaa',
