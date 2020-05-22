@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-app#inspire
+  v-app
     v-content
       v-container(class="fill-height")
         nuxt

@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-navigation-drawer(
+  v-navigation-drawer.navigation-drawer-pos(
     v-model="drawer"
     permanent
     absolute
@@ -7,10 +7,8 @@
     fixed
   )
     v-list-item
-    v-list-item
-    v-list-item
       v-list-item-action
-        v-icon mdi-apps
+        v-icon mdi-archive-arrow-down
       v-list-item-content
         v-list-item-title キャンペーン
 </template>
